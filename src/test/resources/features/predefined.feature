@@ -24,3 +24,29 @@ Feature: Smoke steps
      Then element with xpath"//a[contains(text(),'www.airchina.us/US/GB/Home')]" should contain text "www.airchina.us/US/GB/Home"
 
 
+  @predefined3
+  Scenario: Steps for Bing
+    Given I open url "https://www.bing.com/"
+    Then I should see page title as "Bing"
+    Then element with xpath "//input[@id='sb_form_q']" should not be present
+    When I type "Behaviour Driven Development" into element with xpath "//input[@id='sb_form_q']"
+    Then I click on element using JavaScript with xpath "//label[@id='search_icon']"
+
+  @predefined4
+  Scenario: New steps for Yandex
+    Given I open url "https://yandex.com/"
+    Then I should see page title as "Yandex"
+    Then element with xpath "//input[@id='text']" should be present
+    When I type "Java" into element with xpath "//input[@id='text']"
+    And I click on element with xpath "//button[@type='submit']"
+    And I wait for element with xpath "//div[@class='content__left']" to be present
+    Then element with xpath "//div[@class='content__left']" should contain text "Java"
+
+
+
+
+
+
+
+
+
